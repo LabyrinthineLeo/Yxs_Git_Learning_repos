@@ -1,5 +1,5 @@
 # coding  : utf-8
-# ResNet代码复现
+# role    : ResNet代码复现
 # @Author : Labyrinthine Leo
 # @Time   : 2020.10.08
 
@@ -195,6 +195,12 @@ def parse_layer(block,in_channel,channel,blocks_num,name,strides=1):
 
 
 # 构建不同层网络结构
+def resnet18(im_width=224,im_height=224,num_classes=1000):
+	"""
+	role:构建resnet18
+	"""
+	return resnet(BasicBlock,[2,2,2,2],im_width,im_height,num_classes)
+
 def resnet34(im_width=224,im_height=224,num_classes=1000):
 	"""
 	role:构建resnet34
@@ -213,6 +219,12 @@ def resnet101(im_width=224,im_height=224,num_classes=1000,include_top=True):
 	"""
 	return resnet(BasicBlock,[3,4,23,3],im_width,im_height,num_classes,include_top)
 
+def resnet152(im_width=224,im_height=224,num_classes=1000,include_top=True):
+	"""
+	role:构建resnet152
+	"""
+	return resnet(BasicBlock,[3,8,36,3],im_width,im_height,num_classes,include_top)
+
 
 if __name__ == '__main__':
-	resnet_my = resnet101()
+	resnet_my = resnet101(num_classes=3)
