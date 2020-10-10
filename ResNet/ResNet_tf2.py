@@ -14,10 +14,10 @@ class BasicBlock(layers.Layer):
 	def __init__(self,out_channel,strides=1,downsample=None,**kwargs):
 		"""
 		role:构造函数
-		param out_channel:卷积层所使用的卷积核个数，即输出数据的通道数
-		param strides:步长默认值1，在虚线结构中会为2则传入2
-		param downsample:下采样函数，shortcut中使用
-		param kwargs:字典参数
+		:param out_channel:卷积层所使用的卷积核个数，即输出数据的通道数
+		:param strides:步长默认值1，在虚线结构中会为2则传入2
+		:param downsample:下采样函数，shortcut中使用
+		:param kwargs:字典参数
 		"""
 		super(BasicBlock,self).__init__(**kwargs)
 		# -----------------conv1------------------
@@ -38,8 +38,8 @@ class BasicBlock(layers.Layer):
 	def call(self,inputs,training=False):
 		"""
 		role:定义residual结构正向传播(数据流方向)
-		param inputs:输入数据
-		param training:用于控制BN在训练过程和验证过程展示不同的状态
+		:param inputs:输入数据
+		:param training:用于控制BN在训练过程和验证过程展示不同的状态
 		"""
 		identity = inputs # 用于identity mapping
 		# shortcut选择实线还是虚线结构则取决于下采样函数
@@ -67,10 +67,10 @@ class Bottleneck(layers.Layer):
 	def __init__(self,out_channel,strides=1,downsample=None,**kwargs): 
 		"""
 		role:构造函数
-		param out_channel:第一层卷积层的filter个数
-		param strides:步长默认为1
-		param downsample:shortcut上的下采样操作
-		param kwargs:字典参数
+		:param out_channel:第一层卷积层的filter个数
+		:param strides:步长默认为1
+		:param downsample:shortcut上的下采样操作
+		:param kwargs:字典参数
 		"""
 		super(Bottleneck,self).__init__(**kwargs)
 		# -----------------conv1------------------
@@ -95,8 +95,8 @@ class Bottleneck(layers.Layer):
 	def call(self,inputs,training=False):
 		"""
 		role:定义residual结构正向传播(数据流方向)
-		param inputs:输入数据
-		param training:用于控制BN在训练过程和验证过程展示不同的状态
+		:param inputs:输入数据
+		:param training:用于控制BN在训练过程和验证过程展示不同的状态
 		"""
 		identity = inputs # 用于identity mapping
 		# shortcut选择实线还是虚线结构则取决于下采样函数
@@ -124,12 +124,12 @@ def resnet(block,blocks_num,im_width=224,im_height=224,num_classes=1000,include_
 	"""
 	role:搭建resnet模型结构
 	noted:tensorflow中的tensor顺序NHWC(即数量、高、宽、通道)，here(None,224,224,3)
-	param block:block类型(BasicBlock/Bottleneck)
-	param blocks_num:对应论文中conv2_x ~ conv5_x中每部分residual结构的个数，列表类型(ex.:resnet34[3,4,6,3])
-	param im_width:width of image
-	param im_height:height of image
-	param num_classes:类别数,默认1000类
-	param include_top:是否使用顶层结构(即最后的平均池化下采样层和全连接层)
+	:param block:block类型(BasicBlock/Bottleneck)
+	:param blocks_num:对应论文中conv2_x ~ conv5_x中每部分residual结构的个数，列表类型(ex.:resnet34[3,4,6,3])
+	:param im_width:width of image
+	:param im_height:height of image
+	:param num_classes:类别数,默认1000类
+	:param include_top:是否使用顶层结构(即最后的平均池化下采样层和全连接层)
 	"""
 	# 输入图片数据
 	input_image = layers.Input(shape=(im_height,im_width,3),dtype="float32")
@@ -162,12 +162,12 @@ def resnet(block,blocks_num,im_width=224,im_height=224,num_classes=1000,include_
 def parse_layer(block,in_channel,channel,blocks_num,name,strides=1):
 	"""
 	role:利用blocks_num解析为block结构
-	param block:残差结构类型(2层/3层)
-	param in_channel:输入数据的通道(深度)
-	param channel:每个block第1层的卷积核个数
-	param blocks_num:每一个block的残差结构数量
-	param name:
-	param strides:
+	:param block:残差结构类型(2层/3层)
+	:param in_channel:输入数据的通道(深度)
+	:param channel:每个block第1层的卷积核个数
+	:param blocks_num:每一个block的残差结构数量
+	:param name:
+	:param strides:
 	"""
 	downsample = None
 	# 判断第1个block的类型(64*1和64*4,所以深层结构该条件成立;即basic block则跳过该条件)
