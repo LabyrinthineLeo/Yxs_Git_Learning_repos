@@ -458,7 +458,7 @@ def save_populations(gen_no,pops):
     param gen_no:种群代数
     param pops:种群
     """
-    data = {'gen_no':gen_no,'pops':pops,'create_time':strftime("%Y-%m-%d %H:%M:%S"),gmtime()}
+    data = {'gen_no':gen_no,'pops':pops,'create_time':strftime("%Y-%m-%d %H:%M:%S",gmtime())}
     path = get_data_path()
     with open(path,'wb') as file_handler:
         pickle.dump(data,file_handler)
@@ -478,7 +478,7 @@ def save_offspring(gen_no,pops):
     :param gen_no:种群代数
     :param pops：种群
     """
-    data = {'gen_no':gen_no,'pops':pops,'create_time':strftime("%Y-%m-%d %H:%M:%S"),gmtime()}
+    data = {'gen_no':gen_no,'pops':pops,'create_time':strftime("%Y-%m-%d %H:%M:%S",gmtime())}
     path = os.getcwd() + '/offspring_data/gen_{}.dat'.format(gen_no)
     with open(path,'wb') as file_handler:
         pickle.dump(data,file_handler)
@@ -1134,6 +1134,7 @@ def main():
     """
     role:main function
     """
+    print("hello world")
 
 
 if __name__ == '__main__':
