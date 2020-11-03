@@ -4,6 +4,8 @@
 # @Time   : 2020.10.08
 
 from tensorflow.keras import layers, Model, Sequential
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 class BasicBlock(layers.Layer):
 	"""
@@ -177,7 +179,7 @@ def parse_layer(block,in_channel,channel,blocks_num,name,strides=1):
 		# bottleneck中shortcut的下采样函数
 		downsample = Sequential([
 			# shortcut中的降尺寸升维卷积操作
-			layers.Conv2D(out_channel*block.expansion,kernel_size=1,strides=strides,
+			layers.Conv2D(channel*block.expansion,kernel_size=1,strides=strides,
 						use_bias=False,name="conv1"),
 			layers.BatchNormalization(momentum=0.9,epsilon=1.001e-5,name="BatchNorm")
 		],name="shortcut")
@@ -185,11 +187,11 @@ def parse_layer(block,in_channel,channel,blocks_num,name,strides=1):
 	# 存放一个block的layers列表
 	layers_list = []
 	# 首先添加虚线残差结构
-	layers_list.append(block(out_channel,downsample=downsample,strides=strides,name="unit_1"))
+	layers_list.append(block(channel,downsample=downsample,strides=strides,name="unit_1"))
 
 	# 添加实现残差结构层
-	for inde in range(1,blocks_num):
-		layers_list.append(block(out_channel,name="unit_"+str(index+1)))
+	for index in range(1,blocks_num):
+		layers_list.append(block(channel,name="unit_"+str(index+1)))
 
 	return Sequential(layers_list,name=name)
 
