@@ -213,19 +213,19 @@ def resnet50(im_width=224,im_height=224,num_classes=1000,include_top=True):
 	"""
 	role:构建resnet50
 	"""
-	return resnet(BasicBlock,[3,4,6,3],im_width,im_height,num_classes,include_top)
+	return resnet(Bottleneck,[3,4,6,3],im_width,im_height,num_classes,include_top)
 
 def resnet101(im_width=224,im_height=224,num_classes=1000,include_top=True):
 	"""
 	role:构建resnet101
 	"""
-	return resnet(BasicBlock,[3,4,23,3],im_width,im_height,num_classes,include_top)
+	return resnet(Bottleneck,[3,4,23,3],im_width,im_height,num_classes,include_top)
 
 def resnet152(im_width=224,im_height=224,num_classes=1000,include_top=True):
 	"""
 	role:构建resnet152
 	"""
-	return resnet(BasicBlock,[3,8,36,3],im_width,im_height,num_classes,include_top)
+	return resnet(Bottleneck,[3,8,36,3],im_width,im_height,num_classes,include_top)
 
 
 if __name__ == '__main__':
