@@ -8,6 +8,6 @@
 **Published：** `2015 CVPR`
 
 ***
-**Index Words：** `CNN`、`ResNet`、`Residual Archicture`
+**Index Words：** `DL`、`CNN`、`ResNet`、`Residual Archicture`
 
 ***
