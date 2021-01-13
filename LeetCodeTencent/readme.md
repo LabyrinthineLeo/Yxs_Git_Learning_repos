@@ -14,9 +14,9 @@
 
 ### Task01：完成以下三个题目并打卡（1天）
 
-- [002 两数相加](https://leetcode-cn.com/problems/add-two-numbers/)
-- [004 寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
-- [005 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)
+- [002 两数相加](https://leetcode-cn.com/problems/add-two-numbers/) (2021.01.09)
+- [004 寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/) (2021.01.11)
+- [005 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) (2021.01.13)
 
 ### Task02: 完成以下三个题目并打卡（1天）
 
