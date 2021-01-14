@@ -20,9 +20,9 @@
 
 ### Task02: 完成以下三个题目并打卡（1天）
 
-- [007 整数反转](https://leetcode-cn.com/problems/reverse-integer/)
-- [008 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)
-- [009 回文数](https://leetcode-cn.com/problems/palindrome-number/)
+- [007 整数反转](https://leetcode-cn.com/problems/reverse-integer/)（）
+- [008 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)（）
+- [009 回文数](https://leetcode-cn.com/problems/palindrome-number/)（2021.01.13）
 
 ### Task03: 完成以下三个题目并打卡（1天）
 

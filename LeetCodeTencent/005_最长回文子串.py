@@ -2,3 +2,7 @@
 # fun     : Leetcode 005 最长回文子串
 # @Author : Labyrinthine Leo
 # @Time   : 2021.01.13
+
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+    	
